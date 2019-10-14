@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - just another data structures assignment</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="~/Content/myStyle.css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <div class="w3-bar w3-light-grey">
+        <a class="w3-bar-item w3-button" href="@Url.Action("Index", "Home")">Home</a>
+        <a class="w3-bar-item w3-button" href="@Url.Action("Index", "Stack")">Stack</a>
+        <a class="w3-bar-item w3-button" href="@Url.Action("Index", "Queue")">Queue</a>
+        <a class="w3-bar-item w3-button" href="@Url.Action("Index", "Dictionary")">Dictionary</a>
+        <a class="w3-bar-item w3-button" href="@Url.Action("Exit", "Home")">Exit</a>
+    </div>
+
+    <h1>Learn about the @ViewBag.Title in C#!</h1>
+
+    <div class="w3-dropdown-hover">
+        <button class="w3-button">@ViewBag.Title Actions &#9660</button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+            <a href="@Url.Action("AddOne", ViewBag.Title)" class="w3-bar-item w3-button">Add one time to @ViewBag.Title</a>
+            <a href="@Url.Action("AddHuge", ViewBag.Title)" class="w3-bar-item w3-button">Add Huge List of Items to @ViewBag.Title</a>
+            <a href="@Url.Action("Display", ViewBag.Title)" class="w3-bar-item w3-button">Display @ViewBag.Title</a>
+            <a href="@Url.Action("Delete", ViewBag.Title)" class="w3-bar-item w3-button">Delete from @ViewBag.Title</a>
+            <a href="@Url.Action("Clear", ViewBag.Title)" class="w3-bar-item w3-button">Clear @ViewBag.Title</a>
+            <a href="@Url.Action("Search", ViewBag.Title)" class="w3-bar-item w3-button">Search @ViewBag.Title</a>
+            <a href="@Url.Action("Index", "Home")" class="w3-bar-item w3-button">Return to Main Menu</a>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+
+        <img src="~/Graphics/@(ViewBag.Title).jpg" alt="@ViewBag.Title data structure" width="200" />
+        <br />
+        <br />
+        <p>Message: @ViewBag.Message</p>
+        <p>@ViewBag.Stopwatch</p>
+
+        @foreach (var sData in ViewBag.MyData)
+        {
+            <p>@sData</p>
+        }
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+</body>
+</html>
